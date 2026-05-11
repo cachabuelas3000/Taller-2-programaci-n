@@ -96,6 +96,43 @@ public class Main{
                 JOptionPane.showMessageDialog(null, "Error: Paciente no encontrado o medicamento duplicado");
             }
             break;
+            
+        case 4:
+            // Agendar Cita Médica
+            long appId = Long.parseLong(JOptionPane.showInputDialog("ID de cita:"));
+            String dateTimeStr = JOptionPane.showInputDialog("Fecha y hora (YYYY-MM-DD HH:MM):");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+            LocalDateTime time = LocalDateTime.parse(dateTimeStr, formatter);
+            
+            JOptionPane.showMessageDialog(null, "--- DATOS DEL PACIENTE ---");
+            String[] typesPatient = {"CC", "TI", "CE", "PA"};
+            String selectedTypePatient = (String) JOptionPane.showInputDialog(null, "Tipo de identificación del paciente:",
+                    "Seleccionar", JOptionPane.QUESTION_MESSAGE, null, typesPatient, typesPatient[0]);
+            IdentificationType patientType = IdentificationType.valueOf(selectedTypePatient);
+            
+            long patientIdApp = Long.parseLong(JOptionPane.showInputDialog("ID del paciente:"));
+            
+            JOptionPane.showMessageDialog(null, "--- DATOS DEL MÉDICO ---");
+            String[] typesDoctor = {"CC", "TI", "CE", "PA"};
+            String selectedTypeDoctor = (String) JOptionPane.showInputDialog(null, "Tipo de identificación del médico:",
+                    "Seleccionar", JOptionPane.QUESTION_MESSAGE, null, typesDoctor, typesDoctor[0]);
+            IdentificationType doctorType = IdentificationType.valueOf(selectedTypeDoctor);
+            
+            long doctorId = Long.parseLong(JOptionPane.showInputDialog("ID del médico:"));
+            
+            String[] priorities = {"LOW", "MEDIUM", "HIGH", "CRITICAL"};
+            String selectedPriority = (String) JOptionPane.showInputDialog(null, "Prioridad de la cita:",
+                    "Seleccionar", JOptionPane.QUESTION_MESSAGE, null, priorities, priorities[0]);
+            Priority priority = Priority.valueOf(selectedPriority);
+            
+            boolean successAppointment = service.scheduleAppointment(appId, time, patientType, patientIdApp, doctorType, doctorId, priority);
+            if (successAppointment) {
+                JOptionPane.showMessageDialog(null, "Cita agendada exitosamente");
+            } else {
+                JOptionPane.showMessageDialog(null, "Error: Paciente o médico no existen, o ID de cita duplicado");
+            }
+            break;
+            
         
     }
 }
