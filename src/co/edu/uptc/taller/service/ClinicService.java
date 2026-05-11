@@ -12,12 +12,20 @@ import co.edu.uptc.taller.enums.Priority;
 import co.edu.uptc.taller.repository.DoctorRepository;
 import co.edu.uptc.taller.repository.MedicalAppointmentRepository;
 import co.edu.uptc.taller.repository.PatientRepository;
- 
+
 /**
- * Servicio principal de la clínica que coordina la lógica de negocio
- * CORRECCIÓN: la clase estaba completamente vacía
+ * Servicio principal de la clínica que actúa como intermediario entre la interfaz
+ * de usuario y los repositorios de datos.
+ * <p>
+ * Concentra la lógica de negocio del sistema: registro de pacientes y médicos,
+ * gestión del historial de medicamentos, agendamiento de citas y consulta de
+ * listados ordenados.
+ * </p>
+ *
  * @author Narwill Daniel Zabala Mata
+ * @version 1.0
  */
+ 
 public class ClinicService {
  
     private PatientRepository patientRepository;
