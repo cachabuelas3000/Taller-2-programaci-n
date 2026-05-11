@@ -133,6 +133,21 @@ public class Main{
             }
             break;
             
+        case 5:
+            // Ver Cola de Atención
+            List<MedicalAppointment> appointments = service.getSortedAppointmentsByTimeAndPriority();
+            if (appointments.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No hay citas agendadas");
+            } else {
+                StringBuilder sb = new StringBuilder("=== COLA DE ATENCIÓN (por hora y prioridad) ===\n");
+                for (MedicalAppointment a : appointments) {
+                    sb.append(a.toString()).append("\n");
+                }
+                JOptionPane.showMessageDialog(null, sb.toString());
+            }
+            break;
+            
+            
         
     }
 }
