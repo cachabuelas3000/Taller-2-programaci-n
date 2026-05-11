@@ -5,6 +5,7 @@ import java.util.Set;
 
 import co.edu.uptc.taller.enums.IdentificationType;
 import co.edu.uptc.taller.enums.Priority;
+import co.edu.uptc.taller.service.ClinicService;
 
 /**
  * Entidad que representa a un paciente del sistema
