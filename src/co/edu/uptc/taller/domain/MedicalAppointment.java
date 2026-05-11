@@ -6,8 +6,9 @@ import co.edu.uptc.taller.enums.Priority;
 
 /**
  * Entidad que representa una cita médica
- * @author TuNombre
+ * @author Narwill Daniel Zabala Mata 
  */
+
 public class MedicalAppointment {
     private long idMedicalAppointment;
     private LocalDateTime timeAppointment;
