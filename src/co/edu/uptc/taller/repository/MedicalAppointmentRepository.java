@@ -6,7 +6,7 @@ import co.edu.uptc.taller.domain.MedicalAppointment;
 
 /**
  * Repositorio para gestionar citas médicas
- * @author TuNombre
+ * @author Narwill Daniel Zabala Mata
  */
 public class MedicalAppointmentRepository {
     private Map<Long, MedicalAppointment> appointmentsById;
